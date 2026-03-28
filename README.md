@@ -1,49 +1,45 @@
-# Trading Sentiment Analysis (Hyperliquid × Fear & Greed Index)
+# Binance Futures Trading Bot (Testnet)
 
-## 📊 Overview
+## Overview
 
-This project analyzes 200,000+ trades to understand how market sentiment impacts trading performance.
+This project is a Python CLI-based trading bot that simulates placing MARKET and LIMIT orders on Binance Futures Testnet.
 
-## 🎯 Objective
+## Features
 
-To explore the relationship between trader performance and market sentiment, uncover hidden patterns, and derive actionable trading strategies.
+* Supports BUY and SELL orders
+* MARKET and LIMIT order types
+* Command-line interface (CLI)
+* Input validation
+* Logging of order execution
+* Modular code structure
 
-## ⚙️ Methodology
+## Setup
 
-1. Load trading and sentiment datasets
-2. Clean and preprocess data
-3. Merge datasets on date
-4. Compute performance metrics (PnL, win rate, profit factor)
-5. Analyze sentiment vs performance
-6. Visualize insights
-
-## 🔍 Key Insights
-
-* Traders behave **contrarian to sentiment**
-* Closing short positions during **Fear yields highest profit (~$207 avg per trade)**
-* Extreme Greed has highest win rate but highest risk
-* Weak correlation between sentiment and PnL (r ≈ -0.08)
-
-## 📈 Visualizations
-
-* Sentiment vs PnL overview
-* Direction vs sentiment heatmap
-* Monthly PnL trends
-* Account-level analysis
-* PnL distribution
-
-## 🧠 Strategy Implications
-
-* Buy during Fear
-* Close shorts in Fear
-* Reduce exposure during Greed
-
-## 🚀 How to Run
-
-```bash
-python trading_sentiment_analysis.py
+```bash id="j0z9rd"
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
-## 📂 Outputs
+## Run
 
-Charts are saved in the `outputs/` folder.
+### Market Order
+
+```bash id="0o7x4u"
+python cli.py --symbol BTCUSDT --side BUY --type MARKET --quantity 0.001
+```
+
+### Limit Order
+
+```bash id="h8q9k6"
+python cli.py --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.001 --price 60000
+```
+
+## Logs
+
+All order activity is logged in `trading_bot.log`.
+
+## Notes
+
+* Uses Binance Futures Testnet
+* Mock responses used when API access is unavailable
